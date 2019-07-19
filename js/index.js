@@ -13,14 +13,22 @@ submitButton.addEventListener("click", function(event){
   let golsValue = tagGols.value;
   let artilheiroValue = tagArtilheiro.value;
 
-  let newTds = document.createElement("td");
-  newTds.textContent = timeValue;
-  newTds.textContent = jogosValue;
-  newTds.textContent = golsValue;
-  newTds.textContent = artilheiroValue;
-
   let newTr = document.createElement("tr");
-  newTr.appendChild(newTds)
+
+  let newTimeTd = document.createElement("td");
+  let newJogosTd = document.createElement("td");
+  let newGolsTd = document.createElement("td");
+  let newArtilheiroTd = document.createElement("td");
+  
+  newTimeTd.textContent = timeValue;
+  newJogosTd.textContent = jogosValue;
+  newGolsTd.textContent = golsValue;
+  newArtilheiroTd.textContent = artilheiroValue;
+
+  newTr.appendChild(newTimeTd);
+  newTr.appendChild(newJogosTd);
+  newTr.appendChild(newGolsTd);
+  newTr.appendChild(newArtilheiroTd);
 
   let tableBody = document.querySelector("tbody");
   tableBody.appendChild(newTr);
