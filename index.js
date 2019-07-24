@@ -51,12 +51,8 @@ function createTd(dado){
 }
 
 function isValid(champions){
-  if(champions.jogos < 0){
+  if(champions.jogos < 0 || champions.gols < 0){
     let jogosErro = document.querySelector("#error-message");
-    jogosErro.textContent = "Número inválido de jogos";
-  }
-  if(champions.gols < 0){
-    let golsErro = document.querySelector("#error-message");
-    golsErro.textContent = "Número inválido de gols";
+    jogosErro.textContent = "dados incorretos";
   }
 }
