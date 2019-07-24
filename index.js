@@ -52,7 +52,7 @@ function createTd(dado){
 
 function isValid(champions){
   if(champions.jogos < 0 || champions.gols < 0){
-    let jogosErro = document.querySelector("#error-message");
-    jogosErro.textContent = "dados incorretos";
+    let championsErro = document.querySelector("#error-message");
+    championsErro.textContent = "dados incorretos";
   }
 }
