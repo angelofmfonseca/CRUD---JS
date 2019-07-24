@@ -2,35 +2,48 @@ let submitButton = document.querySelector("#submitButton");
 
 submitButton.addEventListener("click", function(event){
   event.preventDefault();
+
+  let form = document.querySelector("#champions");
   
-  let tagTime = document.querySelector("#time");
-  let tagJogos = document.querySelector("#jogos");
-  let tagGols = document.querySelector("#gols");
-  let tagArtilheiro = document.querySelector("#artilheiro");
+  let champions = getValues(form);
 
-  let timeValue = tagTime.value;
-  let jogosValue = tagJogos.value;
-  let golsValue = tagGols.value;
-  let artilheiroValue = tagArtilheiro.value;
-
-  let newTr = document.createElement("tr");
-
-  let newTimeTd = document.createElement("td");
-  let newJogosTd = document.createElement("td");
-  let newGolsTd = document.createElement("td");
-  let newArtilheiroTd = document.createElement("td");
-  
-  newTimeTd.textContent = timeValue;
-  newJogosTd.textContent = jogosValue;
-  newGolsTd.textContent = golsValue;
-  newArtilheiroTd.textContent = artilheiroValue;
-
-  newTr.appendChild(newTimeTd);
-  newTr.appendChild(newJogosTd);
-  newTr.appendChild(newGolsTd);
-  newTr.appendChild(newArtilheiroTd);
+  let newTr = createTr(champions);
 
   let tableBody = document.querySelector("tbody");
   tableBody.appendChild(newTr);
 
+  form.reset();
 })
+
+function getValues(form){
+  let champions = {
+    time: form.time.value,
+    jogos: form.jogos.value,
+    gols: form.gols.value,
+    artilheiro: form.artilheiro.value
+  }
+  return champions;
+}
+
+function createTr(champions){
+  let newTr = document.createElement("tr");
+
+  let timeTd = createTd(champions.time);
+  let jogosTd = createTd(champions.jogos);
+  let golsTd = createTd(champions.gols);
+  let artilheiroTd = createTd(champions.artilheiro);
+
+  newTr.appendChild(timeTd);
+  newTr.appendChild(jogosTd);
+  newTr.appendChild(golsTd);
+  newTr.appendChild(artilheiroTd);
+
+  return newTr;
+}
+
+function createTd(dado){
+  let newTd = document.createElement("td");
+  newTd.textContent = dado;
+
+  return newTd;
+}
