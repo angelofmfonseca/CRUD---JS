@@ -18,3 +18,8 @@ th, td{
   font-size: 1.5em;
   font-weight: 900;
 }
+
+.fade-out{
+  opacity: 0;
+  transition: 0.5s;
+}

@@ -58,6 +58,10 @@ function isValid(champions){
 }
 
 let rowsFather = document.querySelector("table");
-rowsFather.addEventListener("dblclick", function(){
-    event.target.parentNode.remove()
+rowsFather.addEventListener("dblclick", function(event){
+    event.target.parentNode.classList.add("fade-out");
+
+    setTimeout(function(){
+      event.target.parentNode.remove();
+    }, 500);
   })
