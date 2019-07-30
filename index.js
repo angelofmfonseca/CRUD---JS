@@ -56,3 +56,8 @@ function isValid(champions){
     championsErro.textContent = "dados incorretos";
   }
 }
+
+let rowsFather = document.querySelector("table");
+rowsFather.addEventListener("dblclick", function(){
+    event.target.parentNode.remove()
+  })
