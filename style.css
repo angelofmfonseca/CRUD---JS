@@ -1,6 +1,7 @@
 input{
   display: block;
   margin-bottom: 15px;
+  border-radius: 5px;
 }
 
 table{
@@ -22,4 +23,10 @@ th, td{
 .fade-out{
   opacity: 0;
   transition: 0.5s;
+}
+
+#filtrar-tabela{
+  width: 250px;
+  padding: 5px;
+  border-radius: 5px;
 }

@@ -1,24 +1,24 @@
-let submitButton = document.querySelector("#submitButton");
+const submitButton = document.querySelector("#submitButton");
 
 submitButton.addEventListener("click", function(event){
   event.preventDefault();
 
-  let form = document.querySelector("#champions");
+  const form = document.querySelector("#champions");
   
-  let champions = getValues(form);
+  const champions = getValues(form);
 
-  let newTr = createTr(champions);
+  const newTr = createTr(champions);
 
   isValid(champions);
 
-  let tableBody = document.querySelector("tbody");
+  const tableBody = document.querySelector("tbody");
   tableBody.appendChild(newTr);
 
   form.reset();
 })
 
 function getValues(form){
-  let champions = {
+  const champions = {
     time: form.time.value,
     jogos: form.jogos.value,
     gols: form.gols.value,
@@ -28,12 +28,12 @@ function getValues(form){
 }
 
 function createTr(champions){
-  let newTr = document.createElement("tr");
+  const newTr = document.createElement("tr");
 
-  let timeTd = createTd(champions.time);
-  let jogosTd = createTd(champions.jogos);
-  let golsTd = createTd(champions.gols);
-  let artilheiroTd = createTd(champions.artilheiro);
+  const timeTd = createTd(champions.time);
+  const jogosTd = createTd(champions.jogos);
+  const golsTd = createTd(champions.gols);
+  const artilheiroTd = createTd(champions.artilheiro);
 
   newTr.appendChild(timeTd);
   newTr.appendChild(jogosTd);
@@ -44,7 +44,7 @@ function createTr(champions){
 }
 
 function createTd(dado){
-  let newTd = document.createElement("td");
+  const newTd = document.createElement("td");
   newTd.textContent = dado;
 
   return newTd;
@@ -52,12 +52,12 @@ function createTd(dado){
 
 function isValid(champions){
   if(champions.jogos < 0 || champions.gols < 0){
-    let championsErro = document.querySelector("#error-message");
+    const championsErro = document.querySelector("#error-message");
     championsErro.textContent = "dados incorretos";
   }
 }
 
-let rowsFather = document.querySelector("table");
+const rowsFather = document.querySelector("table");
 rowsFather.addEventListener("dblclick", function(event){
     event.target.parentNode.classList.add("fade-out");
 
@@ -65,3 +65,4 @@ rowsFather.addEventListener("dblclick", function(event){
       event.target.parentNode.remove();
     }, 500);
   })
+
